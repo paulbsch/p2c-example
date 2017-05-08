@@ -1,10 +1,9 @@
 #!/bin/bash
 
-if [ -x /usr/sbin/sshd ]; then
-    /usr/sbin/sshd-keygen && /usr/sbin/sshd
-fi
-
 if [ -n "$@" ]; then
     "$@"
 fi
+
+[ -x /usr/sbin/sshd-keygen ] && /usr/sbin/sshd-keygen  # if CentOS
+[ -x /usr/sbin/sshd ] && /usr/sbin/sshd -D
 
