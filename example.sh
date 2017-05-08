@@ -5,7 +5,7 @@ if [ -n "$@" ]; then
 fi
 
 if [ -x /usr/sbin/sshd-keygen ]; then
-    /usr/sbin/sshd-keygen
+    sudo /usr/sbin/sshd-keygen
 else
     [ ! -f /etc/ssh/ssh_host_key ] && \
         sudo ssh-keygen -q -f /etc/ssh/ssh_host_key -N '' -t rsa1
@@ -19,5 +19,5 @@ else
         sudo ssh-keygen -q -f /etc/ssh/ssh_host_ed25519_key -N '' -t ed25519
 fi
 [ ! -d /var/run/sshd ] && sudo mkdir -p /var/run/sshd
-[ -x /usr/sbin/sshd ] && /usr/sbin/sshd -D
+[ -x /usr/sbin/sshd ] && sudo /usr/sbin/sshd -D
 
