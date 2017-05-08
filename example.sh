@@ -18,7 +18,6 @@ else
     [ ! -f /etc/ssh/ssh_host_ed25519_key ] && \
         sudo ssh-keygen -q -f /etc/ssh/ssh_host_ed25519_key -N '' -t ed25519
 fi
-[ ! -d /var/run/sshd ] && \
-    mkdir -p /var/run/sshd && chown root:root /var/run/sshd
+[ ! -d /var/run/sshd ] && sudo mkdir -p /var/run/sshd
 [ -x /usr/sbin/sshd ] && /usr/sbin/sshd -D
 
