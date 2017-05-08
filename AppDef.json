@@ -51,14 +51,14 @@
             "path": "/usr/local/bin/example.sh",
             "interactive": true,
             "name": "Interactive Batch",
-            "description": "Run a /usr/local/bin/example.sh can start up a named service.",
+            "description": "Run a /usr/local/bin/example.sh which can run an optoinal command itself.",
             "parameters": {
                 "command": {
                     "name": "Command",
                     "description": "Command to run",
                     "type": "STR",
                     "positional": true,
-                    "required": true
+                    "required": false
                 }
             }
         },
