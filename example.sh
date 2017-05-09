@@ -1,8 +1,19 @@
 #!/bin/bash
 
-if [ -n "$*" ]; then
-    echo "$*" >/tmp/args.txt
-fi
+apiurl=$1
+apiuser=$2
+apikey=$3
+
+cat >/usr/local/bin/shutdown <<EOF
+#!/bin/sh
+
+. /etc/JARVICE/jobinfo.sh
+curl "https://api.jarvice.com:443/jarvice/shutdown" \
+    --data-urlencode "name=$JOB_NAME" \
+    --data-urlencode "username=$apiuser" \
+    --data-urlencode "apikey=$apikey"
+EOF
+chmod 755 /usr/local/bin/shutdown
 
 if [ -x /usr/sbin/sshd-keygen ]; then
     sudo /usr/sbin/sshd-keygen
