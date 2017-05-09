@@ -51,14 +51,31 @@
             "path": "/usr/local/bin/example.sh",
             "interactive": true,
             "name": "Interactive Batch",
-            "description": "Run a /usr/local/bin/example.sh which can run an optoinal command itself.",
+            "description": "Run /usr/local/bin/example.sh",
             "parameters": {
-                "command": {
-                    "name": "Command",
-                    "description": "Command to run",
-                    "type": "STR",
+                "-apiurl": {
+                    "name": "-apiurl",
+                    "description": "-apiurl",
+                    "type": "CONST",
+                    "value": "%APIURL%",
                     "positional": true,
-                    "required": false
+                    "required": true
+                },
+                "-apiuser": {
+                    "name": "-apiuser",
+                    "description": "-apiuser",
+                    "type": "CONST",
+                    "value": "%APIUSER%",
+                    "positional": true,
+                    "required": true
+                },
+                "-apikey": {
+                    "name": "-apikey",
+                    "description": "-apikey",
+                    "type": "CONST",
+                    "value": "%APIKEY%",
+                    "positional": true,
+                    "required": true
                 }
             }
         },

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ -n "$@" ]; then
-    "$@"
+    echo "$@" >/tmp/args.txt
 fi
 
 if [ -x /usr/sbin/sshd-keygen ]; then
