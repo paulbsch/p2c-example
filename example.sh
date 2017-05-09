@@ -4,10 +4,11 @@ apiurl=$1
 apiuser=$2
 apikey=$3
 
+. /etc/JARVICE/jobinfo.sh
+
 cat <<EOF | sudo tee /usr/local/bin/shutdown >/dev/null
 #!/bin/sh
 
-. /etc/JARVICE/jobinfo.sh
 curl "https://api.jarvice.com:443/jarvice/shutdown" \
     --data-urlencode "name=$JOB_NAME" \
     --data-urlencode "username=$apiuser" \
