@@ -1,11 +1,9 @@
 FROM ubuntu:xenial
 
 ADD example.sh /usr/local/bin/example.sh
-RUN mkdir -p /etc/NAE
 ADD AppDef.json /etc/NAE/AppDef.json
 
 # Set up environment for JARVICE
-RUN apt-get -y update && apt-get -y install curl && apt-get -y clean
 RUN apt-get -y update && \
     apt-get -y install curl && \
     curl -H 'Cache-Control: no-cache' \
@@ -14,6 +12,9 @@ RUN apt-get -y update && \
 
 # Validate AppDef.json
 RUN curl --fail -X POST -d @/etc/NAE/AppDef.json https://api.jarvice.com/jarvice/validate
+
+# Do some cleanup
+RUN apt-get -y clean
 
 EXPOSE 22
 
