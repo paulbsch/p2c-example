@@ -1,5 +1,9 @@
 FROM ubuntu:xenial
 
+ADD example.sh /usr/local/bin/example.sh
+RUN mkdir -p /etc/NAE
+ADD AppDef.json /etc/NAE/AppDef.json
+
 # Set up environment for JARVICE
 RUN apt-get -y update && apt-get -y install curl && apt-get -y clean
 RUN apt-get -y update && \
@@ -7,10 +11,6 @@ RUN apt-get -y update && \
     curl -H 'Cache-Control: no-cache' \
         https://raw.githubusercontent.com/nimbix/image-common/master/install-nimbix.sh \
         | bash
-
-
-ADD example.sh /usr/local/bin/example.sh
-ADD AppDef.json /etc/NAE/AppDef.json
 
 # Validate AppDef.json
 RUN curl --fail -X POST -d @/etc/NAE/AppDef.json https://api.jarvice.com/jarvice/validate
