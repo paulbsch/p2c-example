@@ -6,16 +6,14 @@ ADD AppDef.json /etc/NAE/AppDef.json
 
 # Set up environment for JARVICE
 RUN [ -x /usr/bin/apt-get ] && \
-    (apt-get -y update && apt-get -y install curl) || /bin/true && \
+        (apt-get -y update && apt-get -y install curl && apt-get -y clean) || \
+        /bin/true && \
     curl -H 'Cache-Control: no-cache' \
         https://raw.githubusercontent.com/nimbix/image-common/master/install-nimbix.sh \
         | bash
 
 # Validate AppDef.json
 RUN curl --fail -X POST -d @/etc/NAE/AppDef.json https://api.jarvice.com/jarvice/validate
-
-# Do some cleanup
-RUN apt-get -y clean
 
 EXPOSE 22
 
