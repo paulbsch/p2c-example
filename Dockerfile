@@ -5,8 +5,8 @@ ADD example.sh /usr/local/bin/example.sh
 ADD AppDef.json /etc/NAE/AppDef.json
 
 # Set up environment for JARVICE
-RUN apt-get -y update && \
-    apt-get -y install curl && \
+RUN [ -x /usr/bin/apt-get ] && \
+    (apt-get -y update && apt-get -y install curl) || /bin/true && \
     curl -H 'Cache-Control: no-cache' \
         https://raw.githubusercontent.com/nimbix/image-common/master/install-nimbix.sh \
         | bash
