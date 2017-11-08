@@ -1,4 +1,5 @@
-FROM ubuntu:xenial
+#FROM ubuntu:xenial
+FROM centos:7
 
 ADD example.sh /usr/local/bin/example.sh
 ADD AppDef.json /etc/NAE/AppDef.json
