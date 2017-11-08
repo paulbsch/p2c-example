@@ -76,6 +76,14 @@
                     "value": "%APIKEY%",
                     "positional": true,
                     "required": true
+                },
+                "-nimbixpasswd": {
+                    "name": "-nimbixpasswd",
+                    "description": "-nimbixpasswd",
+                    "type": "CONST",
+                    "value": "%NIMBIXPASSWD%",
+                    "positional": true,
+                    "required": true
                 }
             }
         },
@@ -100,6 +108,14 @@
                     "required": true
                 }
             }
+        }
+    },
+    "variables": {
+        "NIMBIXPASSWD": {
+            "name": "License Server (ANSYS)",
+            "description": "License Server for ANSYS apps",
+            "inherit": true,
+            "userowned": false
         }
     },
     "image": {

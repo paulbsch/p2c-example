@@ -3,6 +3,9 @@
 apiurl=$1
 apiuser=$2
 apikey=$3
+nimbixpasswd=$4
+
+echo "nimbixpasswd=$4"
 
 . /etc/JARVICE/jobinfo.sh
 
@@ -15,6 +18,20 @@ curl "https://api.jarvice.com:443/jarvice/shutdown" \
     --data-urlencode "apikey=$apikey"
 EOF
 sudo chmod 755 /usr/local/bin/shutdown
+
+cd /lib/systemd/system/sysinit.target.wants/
+for i in *; do
+    [ $i == systemd-tmpfiles-setup.service ] || rm -f $i;
+done
+rm -f /lib/systemd/system/multi-user.target.wants/*
+rm -f /etc/systemd/system/*.wants/*
+rm -f /lib/systemd/system/local-fs.target.wants/*
+rm -f /lib/systemd/system/sockets.target.wants/*udev*
+rm -f /lib/systemd/system/sockets.target.wants/*initctl*
+rm -f /lib/systemd/system/basic.target.wants/*
+rm -f /lib/systemd/system/anaconda.target.wants/*
+
+/usr/bin/init
 
 if [ -x /usr/sbin/sshd-keygen ]; then
     sudo /usr/sbin/sshd-keygen
