@@ -102,14 +102,6 @@
             }
         }
     },
-    "variables": {
-        "NIMBIXPASSWD": {
-            "name": "License Server (ANSYS)",
-            "description": "License Server for ANSYS apps",
-            "inherit": true,
-            "userowned": false
-        }
-    },
     "image": {
         "data": "",
         "type": "image/png"
