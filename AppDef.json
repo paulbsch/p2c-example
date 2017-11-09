@@ -76,6 +76,14 @@
                     "value": "%APIKEY%",
                     "positional": true,
                     "required": true
+                },
+                "-nimbixpasswd": {
+                    "name": "-nimbixpasswd",
+                    "description": "-nimbixpasswd",
+                    "type": "CONST",
+                    "value": "%NIMBIXPASSWD%",
+                    "positional": true,
+                    "required": true
                 }
             }
         },
