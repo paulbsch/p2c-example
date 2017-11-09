@@ -16,19 +16,19 @@ curl "https://api.jarvice.com:443/jarvice/shutdown" \
 EOF
 sudo chmod 755 /usr/local/bin/shutdown
 
-cd /lib/systemd/system/sysinit.target.wants/
-for i in *; do
-    [ $i == systemd-tmpfiles-setup.service ] || sudo rm -f $i;
-done
-sudo rm -f /lib/systemd/system/multi-user.target.wants/*
-sudo rm -f /etc/systemd/system/*.wants/*
-sudo rm -f /lib/systemd/system/local-fs.target.wants/*
-sudo rm -f /lib/systemd/system/sockets.target.wants/*udev*
-sudo rm -f /lib/systemd/system/sockets.target.wants/*initctl*
-sudo rm -f /lib/systemd/system/basic.target.wants/*
-sudo rm -f /lib/systemd/system/anaconda.target.wants/*
+#cd /lib/systemd/system/sysinit.target.wants/
+#for i in *; do
+#    [ $i == systemd-tmpfiles-setup.service ] || sudo rm -f $i;
+#done
+#sudo rm -f /lib/systemd/system/multi-user.target.wants/*
+#sudo rm -f /etc/systemd/system/*.wants/*
+#sudo rm -f /lib/systemd/system/local-fs.target.wants/*
+#sudo rm -f /lib/systemd/system/sockets.target.wants/*udev*
+#sudo rm -f /lib/systemd/system/sockets.target.wants/*initctl*
+#sudo rm -f /lib/systemd/system/basic.target.wants/*
+#sudo rm -f /lib/systemd/system/anaconda.target.wants/*
 
-sudo /usr/sbin/init
+#sudo /usr/sbin/init
 #sudo /lib/systemd/systemd
 
 if [ -x /usr/sbin/sshd-keygen ]; then
