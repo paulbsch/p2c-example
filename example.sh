@@ -28,7 +28,8 @@ sudo rm -f /lib/systemd/system/sockets.target.wants/*initctl*
 sudo rm -f /lib/systemd/system/basic.target.wants/*
 sudo rm -f /lib/systemd/system/anaconda.target.wants/*
 
-/usr/sbin/init
+sudo /usr/sbin/init
+#sudo /lib/systemd/systemd
 
 if [ -x /usr/sbin/sshd-keygen ]; then
     sudo /usr/sbin/sshd-keygen
