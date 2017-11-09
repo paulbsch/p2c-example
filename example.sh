@@ -31,6 +31,10 @@ sudo chmod 755 /usr/local/bin/shutdown
 #sudo /usr/sbin/init
 #sudo /lib/systemd/systemd
 
+sudo /usr/lib/systemd/systemd --switched-root --system
+
+exit 0
+
 if [ -x /usr/sbin/sshd-keygen ]; then
     sudo /usr/sbin/sshd-keygen
 else
