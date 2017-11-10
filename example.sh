@@ -4,6 +4,8 @@ apiurl=$1
 apiuser=$2
 apikey=$3
 
+echo "apiurl=$apiurl" >/tmp/apiurl
+
 . /etc/JARVICE/jobinfo.sh
 
 cat <<EOF | sudo tee /usr/local/bin/shutdown >/dev/null
@@ -15,21 +17,6 @@ curl "https://api.jarvice.com:443/jarvice/shutdown" \
     --data-urlencode "apikey=$apikey"
 EOF
 sudo chmod 755 /usr/local/bin/shutdown
-
-#cd /lib/systemd/system/sysinit.target.wants/
-#for i in *; do
-#    [ $i == systemd-tmpfiles-setup.service ] || sudo rm -f $i;
-#done
-#sudo rm -f /lib/systemd/system/multi-user.target.wants/*
-#sudo rm -f /etc/systemd/system/*.wants/*
-#sudo rm -f /lib/systemd/system/local-fs.target.wants/*
-#sudo rm -f /lib/systemd/system/sockets.target.wants/*udev*
-#sudo rm -f /lib/systemd/system/sockets.target.wants/*initctl*
-#sudo rm -f /lib/systemd/system/basic.target.wants/*
-#sudo rm -f /lib/systemd/system/anaconda.target.wants/*
-
-#sudo /usr/sbin/init
-#sudo /lib/systemd/systemd
 
 sudo /usr/lib/systemd/systemd --switched-root --system &
 
