@@ -1,5 +1,6 @@
 #FROM ubuntu:xenial
-FROM centos:7
+#FROM centos:7
+FROM centos:6
 
 # Update SERIAL_NUMBER to force rebuild of all layers (don't use cached layers)
 ARG SERIAL_NUMBER
