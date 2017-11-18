@@ -5,6 +5,9 @@ FROM centos:7
 ARG SERIAL_NUMBER
 ENV SERIAL_NUMBER ${SERIAL_NUMBER:-20171117.2018}
 
+ARG IMAGE_COMMON_BRANCH
+ENV IMAGE_COMMON_BRANCH ${IMAGE_COMMON_BRANCH:-testing}
+
 ADD example.sh /usr/local/bin/example.sh
 ADD AppDef.json /etc/NAE/AppDef.json
 ADD url.txt /etc/NAE/url.txt
@@ -14,8 +17,8 @@ RUN [ -x /usr/bin/apt-get ] && \
         (apt-get -y update && apt-get -y install curl && apt-get -y clean) || \
         /bin/true && \
     curl -H 'Cache-Control: no-cache' \
-        https://raw.githubusercontent.com/nimbix/image-common/master/install-nimbix.sh \
-        | bash -s -- --image-common-branch testing
+        https://raw.githubusercontent.com/nimbix/image-common/$IMAGE_COMMON_BRANCH/install-nimbix.sh \
+        | bash -s -- --image-common-branch $IMAGE_COMMON_BRANCH
 
 # Validate AppDef.json
 RUN curl --fail -X POST -d @/etc/NAE/AppDef.json https://api.jarvice.com/jarvice/validate
