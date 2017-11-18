@@ -3,6 +3,7 @@ FROM centos:7
 
 ADD example.sh /usr/local/bin/example.sh
 ADD AppDef.json /etc/NAE/AppDef.json
+ADD url.txt /etc/NAE/url.txt
 
 # Set up environment for JARVICE
 RUN [ -x /usr/bin/apt-get ] && \
@@ -10,7 +11,7 @@ RUN [ -x /usr/bin/apt-get ] && \
         /bin/true && \
     curl -H 'Cache-Control: no-cache' \
         https://raw.githubusercontent.com/nimbix/image-common/master/install-nimbix.sh \
-        | bash
+        | bash -s -- --image-common-branch testing
 
 # Validate AppDef.json
 RUN curl --fail -X POST -d @/etc/NAE/AppDef.json https://api.jarvice.com/jarvice/validate
