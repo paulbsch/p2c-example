@@ -1,7 +1,7 @@
 #FROM centos:7
 #FROM centos:6
-#FROM ubuntu:artful
-FROM ubuntu:xenial
+FROM ubuntu:artful
+#FROM ubuntu:xenial
 #FROM ubuntu:trusty
 
 # Update SERIAL_NUMBER to force rebuild of all layers (don't use cached layers)
