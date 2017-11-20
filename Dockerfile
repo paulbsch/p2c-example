@@ -1,7 +1,7 @@
-#FROM centos:7
+FROM centos:7
 #FROM centos:6
 #FROM ubuntu:artful
-FROM ubuntu:zesty
+#FROM ubuntu:zesty
 #FROM ubuntu:xenial
 #FROM ubuntu:trusty
 
