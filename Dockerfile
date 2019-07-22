@@ -15,7 +15,7 @@ ENV IMAGE_COMMON_BRANCH ${IMAGE_COMMON_BRANCH:-rm_shellinabox}
 
 ADD example.sh /usr/local/bin/example.sh
 ADD AppDef.json /etc/NAE/AppDef.json
-ADD url.txt /etc/NAE/url.txt
+#ADD url.txt /etc/NAE/url.txt
 
 # Set up environment for JARVICE
 #RUN [ -x /usr/bin/apt-get ] && \
