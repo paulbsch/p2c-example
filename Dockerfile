@@ -7,10 +7,11 @@ FROM centos:7
 
 # Update SERIAL_NUMBER to force rebuild of all layers (don't use cached layers)
 ARG SERIAL_NUMBER
-ENV SERIAL_NUMBER ${SERIAL_NUMBER:-20171117.2018}
+ENV SERIAL_NUMBER ${SERIAL_NUMBER:-20190722.1250}
 
 ARG IMAGE_COMMON_BRANCH
-ENV IMAGE_COMMON_BRANCH ${IMAGE_COMMON_BRANCH:-testing}
+#ENV IMAGE_COMMON_BRANCH ${IMAGE_COMMON_BRANCH:-testing}
+ENV IMAGE_COMMON_BRANCH ${IMAGE_COMMON_BRANCH:-rm_shellinabox}
 
 ADD example.sh /usr/local/bin/example.sh
 ADD AppDef.json /etc/NAE/AppDef.json
