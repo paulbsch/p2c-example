@@ -26,7 +26,7 @@ ADD AppDef.json /etc/NAE/AppDef.json
 #        | bash -s -- --image-common-branch $IMAGE_COMMON_BRANCH
 ADD https://raw.githubusercontent.com/nimbix/image-common/$IMAGE_COMMON_BRANCH/install-nimbix.sh /tmp
 RUN chmod 755 /tmp/install-nimbix.sh && \
-    /tmp/install-nimbix.sh --image-common-branch $IMAGE_COMMON_BRANCH
+    /tmp/install-nimbix.sh --image-common-branch $IMAGE_COMMON_BRANCH --setup-nimbix-desktop
 
 # Validate AppDef.json
 RUN curl --fail -X POST -d @/etc/NAE/AppDef.json https://api.jarvice.com/jarvice/validate
