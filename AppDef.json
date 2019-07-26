@@ -102,6 +102,11 @@
             }
         }
     },
+    "actions": {
+        "action1": {
+            "args":  "ls -l / >/tmp/ls.out"
+        }
+    },
     "image": {
         "data": "",
         "type": "image/png"
