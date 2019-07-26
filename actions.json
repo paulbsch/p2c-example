@@ -1,7 +1,5 @@
 {
-    "actions": {
-        "action1": {
-            "args":  "ls -l / >/tmp/ls.out"
-        }
+    "action1": {
+        "args":  "ls -l / >/tmp/ls.out"
     }
 }
