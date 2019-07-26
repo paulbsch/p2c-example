@@ -13,11 +13,6 @@ ARG IMAGE_COMMON_BRANCH
 #ENV IMAGE_COMMON_BRANCH ${IMAGE_COMMON_BRANCH:-testing}
 ENV IMAGE_COMMON_BRANCH ${IMAGE_COMMON_BRANCH:-rm_shellinabox}
 
-ADD example.sh /usr/local/bin/example.sh
-ADD AppDef.json /etc/NAE/AppDef.json
-ADD actions.json /etc/NAE/actions.json
-#ADD url.txt /etc/NAE/url.txt
-
 # Set up environment for JARVICE
 #RUN [ -x /usr/bin/apt-get ] && \
 #        (apt-get -y update && apt-get -y install curl && apt-get -y clean) || \
@@ -28,6 +23,11 @@ ADD actions.json /etc/NAE/actions.json
 ADD https://raw.githubusercontent.com/nimbix/image-common/$IMAGE_COMMON_BRANCH/install-nimbix.sh /tmp
 RUN chmod 755 /tmp/install-nimbix.sh && \
     /tmp/install-nimbix.sh --image-common-branch $IMAGE_COMMON_BRANCH --setup-nimbix-desktop
+
+ADD example.sh /usr/local/bin/example.sh
+ADD AppDef.json /etc/NAE/AppDef.json
+ADD actions.json /etc/NAE/actions.json
+#ADD url.txt /etc/NAE/url.txt
 
 # Validate AppDef.json
 RUN curl --fail -X POST -d @/etc/NAE/AppDef.json https://api.jarvice.com/jarvice/validate
