@@ -31,6 +31,7 @@ ADD example.sh /usr/local/bin/example.sh
 
 # Validate AppDef.json
 #RUN curl --fail -X POST -d @/etc/NAE/AppDef.json https://api.jarvice.com/jarvice/validate
+RUN touch /etc/NAE/AppDef.json
 
 EXPOSE 22
 
