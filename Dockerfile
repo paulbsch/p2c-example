@@ -26,6 +26,8 @@ RUN chmod 755 /tmp/install-nimbix.sh && \
 
 ADD example.sh /usr/local/bin/example.sh
 ADD AppDef.json /etc/NAE/AppDef.json
+ADD screenshot.png /etc/NAE/screenshot.png
+ADD screenshot.txt /etc/NAE/screenshot.txt
 #ADD actions.json /etc/NAE/actions.json
 #ADD url.txt /etc/NAE/url.txt
 
