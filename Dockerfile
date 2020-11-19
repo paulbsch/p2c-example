@@ -3,15 +3,15 @@
 #FROM centos:6
 #FROM ubuntu:artful
 #FROM ubuntu:zesty
-#FROM ubuntu:xenial
+FROM ubuntu:xenial
 #FROM ubuntu:trusty
-FROM ubuntu:bionic
+#FROM ubuntu:bionic
 
 # Update SERIAL_NUMBER to force rebuild of all layers (don't use cached layers)
 ARG SERIAL_NUMBER
 ENV SERIAL_NUMBER ${SERIAL_NUMBER:-20190722.1250}
 
-RUN echo "91.189.88.152 ports.ubuntu.com" >>/etc/hosts
+#RUN echo "91.189.88.152 ports.ubuntu.com" >>/etc/hosts
 
 ARG IMAGE_COMMON_BRANCH
 #ENV IMAGE_COMMON_BRANCH ${IMAGE_COMMON_BRANCH:-testing}
